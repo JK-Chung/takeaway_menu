@@ -28,25 +28,8 @@ export default props => {
             <Typography variant="body1" style={{"display": "inline"}}>
                 {props.foodName}
             </Typography>
-            <div style={{"float": "right"}}>
-                <CounterTextField />
-            </div>
+            <CounterTextField style={{"float": "right"}} />
         </Paper>
     )
-
-    // return (
-    //     <Paper className={classes.paper}>
-    //         <Grid container className={classes.grid} spacing={2}>
-    //             <Grid item xs={10}>
-    //                 <Typography variant="body1">
-    //                     {props.foodName}
-    //                 </Typography>
-    //             </Grid>
-    //             <Grid item xs={2}>
-    //                 <CounterTextField />
-    //             </Grid>
-    //         </Grid>
-    //     </Paper>
-    // )
 }
 

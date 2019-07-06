@@ -92,11 +92,11 @@ const CounterTextField = props => {
     };
 
     return (
-        <React.Fragment>
-            <MinusButton onClick={ decrementCounter }/>
-            <TextField value={counter}/>
-            <PlusButton onClick={ incrementCounter }/>
-        </React.Fragment>
+        <div style={props.style}>
+            <MinusButton onClick={ decrementCounter } />
+            <TextField value={counter} />
+            <PlusButton onClick={ incrementCounter } />
+        </div>
     )
 };
 
