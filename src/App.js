@@ -3,6 +3,7 @@ import './App.css';
 
 import { Header } from "./Components/Layout";
 import FoodItem from "./Components/FoodItem";
+
 import menuData from "./Resources/menu.json";
 
 const generateUIComponentsFromMenuData = () => {

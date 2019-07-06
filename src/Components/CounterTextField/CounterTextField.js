@@ -35,7 +35,7 @@ const MinusButton = props => {
     };
 
     return (
-        <BaseButton style={minusButtonStyle}>
+        <BaseButton onClick={props.onClick} style={minusButtonStyle}>
             <RemoveIcon />
         </BaseButton>
     );
@@ -49,7 +49,7 @@ const PlusButton = props => {
     };
 
     return (
-        <BaseButton style={plusButtonStyle}>
+        <BaseButton onClick={props.onClick} style={plusButtonStyle}>
             <AddIcon />
         </BaseButton>
     );
