@@ -22,7 +22,7 @@ const BaseButton = props => {
 
     return (
         <Button variant="contained" style={{...baseButtonStyle, ...props.style}} onClick={props.onClick}>
-            { React.cloneElement(props.children, {style: baseButtonContentStyle}) }
+            { React.cloneElement(props.children, {style: baseButtonContentStyle, ...props.children.style}) }
         </Button>
     )
 };
@@ -79,7 +79,7 @@ const TextField = props => {
     )
 };
 
-const CounterTextField = props => {
+export default props => {
     const [counter, setCounter] = useState(0);
 
     const decrementCounter = () => {
@@ -99,5 +99,3 @@ const CounterTextField = props => {
         </div>
     )
 };
-
-export default CounterTextField;

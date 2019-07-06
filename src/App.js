@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 
-import { Header } from "./Components/Layout";
+import Header from "./Components/Layout/Header";
 import FoodItem from "./Components/FoodItem";
 
 import menuData from "./Resources/menu.json";
