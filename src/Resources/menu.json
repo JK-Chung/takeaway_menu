@@ -2,11 +2,11 @@
   {
     "id": 1,
     "name": "Chicken Curry",
-    "price": 2.3
+    "price": 2.30
   },
   {
     "id": 2,
     "name": "Beef Satay",
-    "price": 6.2
+    "price": 6.20
   }
 ]

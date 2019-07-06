@@ -3,56 +3,55 @@ import Button from "@material-ui/core/Button";
 import RemoveIcon from "@material-ui/icons/Remove";
 import AddIcon from "@material-ui/icons/Add";
 
-import { makeStyles } from '@material-ui/core/styles';
-
-const height = "20px";
-
-const useStyles = makeStyles(theme => ({
-    button: {
-        "height": height,
-        "width": height,
+const BaseButton = props => {
+    const baseButtonStyle = {
+        "height": "20px",
+        "width": "20px",
         "color": "white",
         "borderStyle": "none",
 
         // Override material-ui button styles affecting the button size we want
         "minWidth": "0px",
         "padding": "0px"
-    },
-    buttonContent: {
+    };
+
+    const baseButtonContentStyle = {
         "height": "15px",
         "width": "15px"
-    }
-}));
+    };
+
+    return (
+        <Button variant="contained" style={{...baseButtonStyle, ...props.style}} onClick={props.onClick}>
+            { React.cloneElement(props.children, {style: baseButtonContentStyle}) }
+        </Button>
+    )
+};
 
 const MinusButton = props => {
-    const classes = useStyles();
-
-    const buttonStyle = {
+    const minusButtonStyle = {
         "backgroundColor": "red",
         "borderBottomRightRadius": "0px",
         "borderTopRightRadius": "0px"
     };
 
     return (
-        <Button variant="contained" className={classes.button} style={buttonStyle} onClick={props.onClick}>
-            <RemoveIcon className={classes.buttonContent}/>
-        </Button>
+        <BaseButton style={minusButtonStyle}>
+            <RemoveIcon />
+        </BaseButton>
     );
 };
 
 const PlusButton = props => {
-    const classes = useStyles();
-
-    const buttonStyle = {
+    const plusButtonStyle = {
         "backgroundColor": "green",
         "borderBottomLeftRadius": "0px",
         "borderTopLeftRadius": "0px"
     };
 
     return (
-        <Button variant="contained" className={classes.button} style={buttonStyle} onClick={props.onClick}>
-            <AddIcon className={classes.buttonContent}/>
-        </Button>
+        <BaseButton style={plusButtonStyle}>
+            <AddIcon />
+        </BaseButton>
     );
 };
 

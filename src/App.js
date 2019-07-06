@@ -7,7 +7,7 @@ import menuData from "./Resources/menu.json";
 
 const generateUIComponentsFromMenuData = () => {
     return menuData
-        .map(menuDatum => <FoodItem foodName={menuDatum.name}/>)
+        .map(menuDatum => <FoodItem key={menuDatum.id} foodName={menuDatum.name}/>)
 };
 
 const App = () => {
