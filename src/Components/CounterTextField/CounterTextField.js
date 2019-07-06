@@ -80,7 +80,7 @@ const TextField = props => {
     )
 };
 
-export default props => {
+const CounterTextField = props => {
     const [counter, setCounter] = useState(0);
 
     const decrementCounter = () => {
@@ -99,4 +99,6 @@ export default props => {
             <PlusButton onClick={ incrementCounter }/>
         </React.Fragment>
     )
-}
+};
+
+export default CounterTextField;

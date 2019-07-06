@@ -3,14 +3,20 @@ import './App.css';
 
 import { Header } from "./Components/Layout";
 import FoodItem from "./Components/FoodItem";
+import menuData from "./Resources/menu.json";
 
-function App() {
-  return (
-    <React.Fragment>
-      <Header />
-      <FoodItem foodName={"Chicken Curry"}/>
-    </React.Fragment>
-  );
-}
+const generateUIComponentsFromMenuData = () => {
+    return menuData
+        .map(menuDatum => <FoodItem foodName={menuDatum.name}/>)
+};
+
+const App = () => {
+    return (
+        <React.Fragment>
+          <Header />
+          { generateUIComponentsFromMenuData() }
+        </React.Fragment>
+    );
+};
 
 export default App;
