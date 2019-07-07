@@ -21,7 +21,7 @@ const BaseButton = props => {
     };
 
     return (
-        <Button variant="contained" style={{...baseButtonStyle, ...props.style}} onClick={props.onClick}>
+        <Button style={{...baseButtonStyle, ...props.style}} onClick={props.onClick}>
             { React.cloneElement(props.children, {style: baseButtonContentStyle, ...props.children.style}) }
         </Button>
     )
@@ -68,12 +68,10 @@ const TextField = props => {
                 "padding": "0px",
                 "textAlign": "center",
                 "color": "black",
-                "boxShadow": "0px 1px 5px 0px rgba(0,0,0,0.2),0px 2px 2px 0px " +
-                    "rgba(0,0,0,0.14),0px 3px 1px -2px rgba(0,0,0,0.12)",
 
                 // For some reason, the textfield won't line up with the buttons
                 "position": "relative",
-                "top": "1px"
+                "top": "1.4px"
             }}
         />
     )
@@ -83,13 +81,16 @@ export default props => {
     const [counter, setCounter] = useState(0);
 
     const decrementCounter = () => {
-        if(counter !== 0)
+        if(counter !== 0) {
             setCounter(counter - 1);
+        }
     } ;
     const incrementCounter = () => {
         if(counter !== 99)
             setCounter(counter + 1);
     };
+
+    React.useEffect(() => props.onChange(counter));
 
     return (
         <div style={props.style}>

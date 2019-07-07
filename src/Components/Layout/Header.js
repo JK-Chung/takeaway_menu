@@ -1,7 +1,6 @@
 import React from 'react';
 import Toolbar from "@material-ui/core/Toolbar";
 import AppBar from "@material-ui/core/AppBar";
-
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 
@@ -38,8 +37,10 @@ export default props => {
     return (
         <AppBar position="static">
             <Toolbar>
+                <div style={{ "display": "flex" }}>
                 <HomeButton />
-                <PageButtons style={{"position": "absolute", "right": "0px"}}/>
+                <PageButtons style={{ "position": "absolute", "right": "0px" }}/>
+                </div>
             </Toolbar>
         </AppBar>
     )
