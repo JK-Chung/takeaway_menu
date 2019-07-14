@@ -5,6 +5,7 @@ import TableRow from '@material-ui/core/TableRow';
 
 import CounterTextField from "./CounterTextField/CounterTextField";
 import AddButton from "./Components/AddButton";
+import FoodExtrasDialog from "./Layout/FoodExtrasDialog";
 
 const generateTotalPriceUIComponent = (foodItem, quantity) => {
     return (
@@ -17,6 +18,7 @@ const generateTotalPriceUIComponent = (foodItem, quantity) => {
 export default props => {
     const {id, name, price} = props.foodItem;
     const [quantity, setQuantity] = React.useState(0);
+    const [isDialogOpen, setIsDialogOpen] = React.useState(false);
 
     const tableCellStyle = {
         "white-space": "nowrap"
@@ -30,7 +32,8 @@ export default props => {
                 <CounterTextField callbackToReceiveCounter={ setQuantity }/>
             </TableCell>
             <TableCell>{quantity}</TableCell>
-            <TableCell><AddButton style={{"backgroundColor": quantity === 0 ? "lightgray" : "blue"}}/></TableCell>
+            <TableCell><AddButton onClick={() => setIsDialogOpen(true)} style={{"backgroundColor": quantity === 0 ? "lightgray" : "blue"}}/></TableCell>
+            <FoodExtrasDialog open={isDialogOpen} onClose={() => setIsDialogOpen(false)}/>
         </TableRow>
     )
 }
