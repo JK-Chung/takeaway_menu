@@ -3,7 +3,6 @@
 # files/folders to ignore
 .idea/
 node_modules/
-public/
 README.md
 
 # dependencies
