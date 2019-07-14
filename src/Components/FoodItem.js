@@ -3,9 +3,8 @@ import Typography from "@material-ui/core/Typography";
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 
-import CounterTextField from "./CounterTextField/CounterTextField";
 import AddButton from "./Components/AddButton";
-import FoodExtrasDialog from "./Layout/FoodExtrasDialog";
+import FoodQuantityDialog from "./Dialogs/FoodQuantityDialog";
 
 const generateTotalPriceUIComponent = (foodItem, quantity) => {
     return (
@@ -21,19 +20,15 @@ export default props => {
     const [isDialogOpen, setIsDialogOpen] = React.useState(false);
 
     const tableCellStyle = {
-        "white-space": "nowrap"
+        "whiteSpace": "nowrap"
     };
     return(
         <TableRow>
             <TableCell style={{...tableCellStyle}} align="right">{id}</TableCell>
             <TableCell style={{...tableCellStyle, "width": "100%"}} align="left">{name}</TableCell>
             <TableCell style={{...tableCellStyle}}> {"£" + price.toFixed(2)}</TableCell>
-            <TableCell style={{...tableCellStyle}}>
-                <CounterTextField callbackToReceiveCounter={ setQuantity }/>
-            </TableCell>
-            <TableCell>{quantity}</TableCell>
             <TableCell><AddButton onClick={() => setIsDialogOpen(true)} style={{"backgroundColor": quantity === 0 ? "lightgray" : "blue"}}/></TableCell>
-            <FoodExtrasDialog open={isDialogOpen} onClose={() => setIsDialogOpen(false)}/>
+            <FoodQuantityDialog open={isDialogOpen} onClose={() => setIsDialogOpen(false)}/>
         </TableRow>
     )
 }

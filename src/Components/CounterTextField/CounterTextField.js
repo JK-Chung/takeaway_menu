@@ -41,7 +41,7 @@ const TextField = props => {
             style={{
                 "height": "20px",
                 "width": "30px",
-                "borderWidth": "0px",
+                "border": "none",
                 "padding": "0px",
                 "textAlign": "center",
                 "color": "black",
@@ -55,25 +55,11 @@ const TextField = props => {
 };
 
 export default props => {
-    const [counter, setCounter] = useState(0);
-
-    const decrementCounter = () => {
-        if(counter !== 0) {
-            setCounter(counter - 1);
-        }
-    } ;
-    const incrementCounter = () => {
-        if(counter !== 99)
-            setCounter(counter + 1);
-    };
-
-    React.useEffect(() => props.callbackToReceiveCounter(counter));
-
     return (
         <div style={props.style}>
-            <MinusButton onClick={ decrementCounter } />
-            <TextField value={counter} />
-            <PlusButton onClick={ incrementCounter } />
+            <MinusButton onClick={ props.onDecrement } />
+            <TextField value={props.value} />
+            <PlusButton onClick={ props.onIncrement } />
         </div>
     )
 };
