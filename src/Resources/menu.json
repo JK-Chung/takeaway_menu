@@ -1,12 +1,17 @@
 [
   {
-    "id": 1,
-    "name": "Chicken Curry",
-    "price": 2.30
-  },
-  {
-    "id": 2,
-    "name": "Beef Satay",
-    "price": 6.20
+    "sectionName": "Main Meals",
+    "sectionFoods": [
+      {
+        "id": 1,
+        "name": "Chicken Curry",
+        "price": 2.30
+      },
+      {
+        "id": 2,
+        "name": "Beef Satay",
+        "price": 6.20
+      }
+    ]
   }
 ]

@@ -1,31 +1,8 @@
 import React, {useState} from "react";
-import Button from "@material-ui/core/Button";
 import RemoveIcon from "@material-ui/icons/Remove";
 import AddIcon from "@material-ui/icons/Add";
 
-const BaseButton = props => {
-    const baseButtonStyle = {
-        "height": "20px",
-        "width": "20px",
-        "color": "white",
-        "borderStyle": "none",
-
-        // Override material-ui button styles affecting the button size we want
-        "minWidth": "0px",
-        "padding": "0px"
-    };
-
-    const baseButtonContentStyle = {
-        "height": "15px",
-        "width": "15px"
-    };
-
-    return (
-        <Button style={{...baseButtonStyle, ...props.style}} onClick={props.onClick}>
-            { React.cloneElement(props.children, {style: baseButtonContentStyle, ...props.children.style}) }
-        </Button>
-    )
-};
+import BaseButton from "../Components/BaseButton";
 
 const MinusButton = props => {
     const minusButtonStyle = {
@@ -90,7 +67,7 @@ export default props => {
             setCounter(counter + 1);
     };
 
-    React.useEffect(() => props.onChange(counter));
+    React.useEffect(() => props.callbackToReceiveCounter(counter));
 
     return (
         <div style={props.style}>

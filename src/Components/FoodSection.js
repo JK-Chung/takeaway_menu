@@ -3,6 +3,9 @@ import Paper from "@material-ui/core/Paper";
 import {makeStyles} from "@material-ui/core";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+
 import FoodItem from "./FoodItem";
 
 const useStyles = makeStyles(theme => ({
@@ -12,17 +15,14 @@ const useStyles = makeStyles(theme => ({
         "marginLeft": "auto",
         "marginBottom": "10px",
         "marginRight": "auto",
-
-        "paddingBottom": "5px"
     }
 }));
 
-const convertMenuDataToOrderedList = menuData => {
-    let i = 0;
+const convertFoodDataToUIComponenents = foodData => {
     return (
-        <ul>
-            { menuData.map(foodItem => <FoodItem key={i++} foodItem={foodItem} />) }
-        </ul>
+        <TableBody>
+            { foodData.map((foodItem, index) => <FoodItem key={index} foodItem={foodItem} />) }
+        </TableBody>
     )
 };
 
@@ -36,7 +36,9 @@ export default props => {
                     { props.sectionName }
                 </Toolbar>
             </AppBar>
-            { convertMenuDataToOrderedList(props.menuData) }
+            <Table>
+                { convertFoodDataToUIComponenents(props.foodData) }
+            </Table>
         </Paper>
     )
 };
