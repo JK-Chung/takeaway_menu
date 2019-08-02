@@ -12,7 +12,7 @@ const MinusButton = props => {
     };
 
     return (
-        <BaseButton onClick={props.onClick} style={minusButtonStyle}>
+        <BaseButton height={props.height} width={props.height} style={minusButtonStyle} onClick={props.onClick} >
             <RemoveIcon />
         </BaseButton>
     );
@@ -26,7 +26,7 @@ const PlusButton = props => {
     };
 
     return (
-        <BaseButton onClick={props.onClick} style={plusButtonStyle}>
+        <BaseButton height={props.height} width={props.height} style={plusButtonStyle} onClick={props.onClick} >
             <AddIcon />
         </BaseButton>
     );
@@ -39,27 +39,39 @@ const TextField = props => {
             value={props.value}
             disabled={true}
             style={{
-                "height": "20px",
-                "width": "30px",
+                "height": props.height,
+                "width": props.width,
                 "border": "none",
                 "padding": "0px",
+
+
                 "textAlign": "center",
                 "color": "black",
+                "fontSize": props.height * 0.6,
 
-                // For some reason, the textfield won't line up with the buttons
-                "position": "relative",
-                "top": "1.4px"
+                // This ensures that the input lines up with the buttons
+                "verticalAlign": "middle"
             }}
         />
     )
 };
 
-export default props => {
+const CounterTextField = props => {
+    const { height } = props;
+    const inputLength = props.width - (2 * height);
+
     return (
-        <div style={props.style}>
-            <MinusButton onClick={ props.onDecrement } />
-            <TextField value={props.value} />
-            <PlusButton onClick={ props.onIncrement } />
+        <div>
+            <MinusButton height={height} onClick={ props.onDecrement } />
+            <TextField height={height} width={inputLength} value={props.value} />
+            <PlusButton height={height} onClick={ props.onIncrement } />
         </div>
     )
 };
+
+CounterTextField.defaultProps = {
+    height: 20,
+    width: 70
+};
+
+export default CounterTextField;

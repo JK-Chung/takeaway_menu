@@ -3,8 +3,8 @@ import React from "react";
 
 const BaseButton = props => {
     const baseButtonStyle = {
-        "height": "20px",
-        "width": "20px",
+        "height": props.height,
+        "width": props.width,
         "color": "white",
         "borderStyle": "none",
 
@@ -14,8 +14,8 @@ const BaseButton = props => {
     };
 
     const baseButtonContentStyle = {
-        "height": "15px",
-        "width": "15px"
+        "height": props.height * 0.75,
+        "width": props.width * 0.75
     };
 
     return (
@@ -23,6 +23,11 @@ const BaseButton = props => {
             { React.cloneElement(props.children, {style: baseButtonContentStyle, ...props.children.style}) }
         </Button>
     )
+};
+
+BaseButton.defaultProps = {
+    height: 20,
+    width: 20
 };
 
 export default BaseButton;
