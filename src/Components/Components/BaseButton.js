@@ -14,8 +14,8 @@ const BaseButton = props => {
     };
 
     const baseButtonContentStyle = {
-        "height": props.height * 0.75,
-        "width": props.width * 0.75
+        "height": "75%",
+        "width": "75%"
     };
 
     return (
@@ -26,8 +26,8 @@ const BaseButton = props => {
 };
 
 BaseButton.defaultProps = {
-    height: 20,
-    width: 20
+    height: "20px",
+    width: "20px"
 };
 
 export default BaseButton;

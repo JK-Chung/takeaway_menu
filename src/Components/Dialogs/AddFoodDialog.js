@@ -4,6 +4,7 @@ import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
 import CounterTextField from "../CounterTextField/CounterTextField";
+import QuantitySetter from "./QuantitySetter";
 
 const steps = [
     {
@@ -30,7 +31,7 @@ const AddFoodDialog = props => {
             <Stepper activeStep={activeStep}>
                 { steps.map(({title}) => labelToStepComponent(title)) }
             </Stepper>
-            <CounterTextField height={100} width={400} value={99}/>
+            <QuantitySetter />
         </Dialog>
     )
 };
