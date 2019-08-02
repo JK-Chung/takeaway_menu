@@ -3,7 +3,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import {ListItemIcon} from "@material-ui/core";
 import CounterTextField from "../CounterTextField/CounterTextField";
-import StylisedDialog from "../Components/StylisedDialog";
+import StylisedDialog from "../common/StylisedDialog";
 
 const extras = ["Fried Rice", "Boiled Rice", "Chips", "Noodles"];
 

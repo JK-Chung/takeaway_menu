@@ -3,7 +3,7 @@ import Typography from "@material-ui/core/Typography";
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 
-import AddButton from "./Components/AddButton";
+import AddButton from "./common/AddButton";
 import FoodQuantityDialog from "./Dialogs/FoodQuantityDialog";
 import AddFoodDialog from "./Dialogs/AddFoodDialog";
 

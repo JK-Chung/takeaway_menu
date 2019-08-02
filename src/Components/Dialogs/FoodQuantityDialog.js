@@ -1,5 +1,5 @@
 import React from "react";
-import StylisedDialog from "../Components/StylisedDialog";
+import StylisedDialog from "../common/StylisedDialog";
 import CounterTextField from "../CounterTextField/CounterTextField";
 
 let quantity = 0;

@@ -1,61 +1,9 @@
 import React from "react";
-import RemoveIcon from "@material-ui/icons/Remove";
-import AddIcon from "@material-ui/icons/Add";
-
-import BaseButton from "../Components/BaseButton";
 import PropTypes from "prop-types";
 
-const MinusButton = props => {
-    const minusButtonStyle = {
-        "backgroundColor": "red",
-        "borderBottomRightRadius": "0px",
-        "borderTopRightRadius": "0px"
-    };
-
-    return (
-        <BaseButton height={props.height} width={props.height} style={minusButtonStyle} onClick={props.onClick} >
-            <RemoveIcon />
-        </BaseButton>
-    );
-};
-
-const PlusButton = props => {
-    const plusButtonStyle = {
-        "backgroundColor": "green",
-        "borderBottomLeftRadius": "0px",
-        "borderTopLeftRadius": "0px"
-    };
-
-    return (
-        <BaseButton height={props.height} width={props.height} style={plusButtonStyle} onClick={props.onClick} >
-            <AddIcon />
-        </BaseButton>
-    );
-};
-
-const TextField = props => {
-    return (
-        <input
-            autoFocus={true}
-            value={props.value}
-            disabled={true}
-            style={{
-                "height": props.height,
-                "width": props.width,
-                "border": "none",
-                "padding": "0px",
-
-
-                "textAlign": "center",
-                "color": "black",
-                "fontSize": `calc(${props.height} * 0.6)`,
-
-                // This ensures that the input lines up with the buttons
-                "verticalAlign": "middle"
-            }}
-        />
-    )
-};
+import MinusButton from "./MinusButton";
+import TextField from "./TextField";
+import PlusButton from "./PlusButton";
 
 const useQuantity = ( onChange = function() {} ) => {
     const [quantity, setQuantity] = React.useState(0);
