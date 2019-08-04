@@ -22,7 +22,11 @@ const steps = [
     },
     {
         label: "Sides",
-        stepperContent: null
+        stepperContent: <React.Fragment />
+    },
+    {
+        label: "Extras",
+        stepperContent: <React.Fragment />
     }
 ];
 
@@ -52,6 +56,7 @@ const AddFoodDialog = props => {
                     { steps[activeStep].stepperContent }
                 </Container>
             </DialogContent>
+
             <DialogContent>
                 <Button variant="contained" color="primary" onClick={() => setActiveStep(activeStep + 1)}>
                     Next

@@ -33,7 +33,7 @@ const style = {
 };
 
 const CounterTextField = props => {
-    const { quantity, decrementQuantity, incrementQuantity } = useQuantity();
+    const { quantity, decrementQuantity, incrementQuantity } = useQuantity(props.onChange);
 
     return (
         <div>
