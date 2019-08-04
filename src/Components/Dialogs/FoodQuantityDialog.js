@@ -1,6 +1,6 @@
 import React from "react";
 import StylisedDialog from "../common/StylisedDialog";
-import CounterTextField from "../CounterTextField/CounterTextField";
+import CounterTextField from "../common/CounterTextField/CounterTextField";
 
 let quantity = 0;
 

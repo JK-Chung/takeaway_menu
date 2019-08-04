@@ -1,6 +1,6 @@
 import React from "react";
-import BaseButton from "../common/BaseButton";
 import AddIcon from "@material-ui/icons/Add";
+import BaseButton from "../BaseButton";
 
 const plusButtonStyle = {
     "backgroundColor": "green",

@@ -1,5 +1,5 @@
 import React from "react";
-import BaseButton from "../common/BaseButton";
+import BaseButton from "../BaseButton";
 import RemoveIcon from "@material-ui/icons/Remove";
 
 const minusButtonStyle = {

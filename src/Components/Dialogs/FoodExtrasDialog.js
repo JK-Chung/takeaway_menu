@@ -2,8 +2,8 @@ import React from "react";
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import {ListItemIcon} from "@material-ui/core";
-import CounterTextField from "../CounterTextField/CounterTextField";
 import StylisedDialog from "../common/StylisedDialog";
+import CounterTextField from "../common/CounterTextField/CounterTextField";
 
 const extras = ["Fried Rice", "Boiled Rice", "Chips", "Noodles"];
 

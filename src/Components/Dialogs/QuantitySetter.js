@@ -1,5 +1,5 @@
 import React from "react";
-import CounterTextField from "../CounterTextField/CounterTextField";
+import CounterTextField from "../common/CounterTextField/CounterTextField";
 
 const QuantitySetter = props => {
     const [quantity, setQuantity] = React.useState(0);
