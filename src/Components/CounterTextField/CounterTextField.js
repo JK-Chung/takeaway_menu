@@ -21,39 +21,28 @@ const useQuantity = (onChange = () => {}) => {
     return { quantity, decrementQuantity, incrementQuantity }
 };
 
+const style = {
+    button: {
+        "height": "10vh",
+        "width": "10vh"
+    },
+    textField: {
+        "height": "10vh",
+        "width": "15vh",
+        "fontSize": "7vh"
+    }
+};
+
 const CounterTextField = props => {
     const { quantity, decrementQuantity, incrementQuantity } = useQuantity();
-    const buttonRef = React.createRef();
-
-    const { height } = props;
-
-    const buttonWidthToOverallWidth =  1 / 3.5;
-    const textFieldWidthToOverallWidth = 1.5 / 3.5;
-
-    const style = {
-        button: {
-            "height": "100%",
-            "width": `calc(100% * ${buttonWidthToOverallWidth})`
-        },
-        textField: {
-            "height": "100%",
-            "width": `calc(100% * ${textFieldWidthToOverallWidth})`,
-            "fontSize": "10vh"
-        }
-    };
-    console.log(buttonRef.current);
 
     return (
-        <div style={{"height": height, "width": `calc(${height}) * 3.5`}}>
+        <div>
             <MinusButton style={style.button} onClick={ decrementQuantity }/>
             <TextField style={style.textField} value={quantity} />
             <PlusButton style={style.button} onClick={ incrementQuantity } />
         </div>
     )
-};
-
-CounterTextField.defaultProps = {
-    "height": "5rem"
 };
 
 export default CounterTextField;
