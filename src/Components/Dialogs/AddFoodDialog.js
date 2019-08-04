@@ -5,6 +5,8 @@ import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
 import QuantitySetter from "./QuantitySetter";
+import {DialogContentText} from "@material-ui/core";
+import Container from "@material-ui/core/Container";
 
 const steps = [
     {
@@ -35,10 +37,13 @@ const AddFoodDialog = props => {
     const [activeStep, setActiveStep] = React.useState(0);
 
     return (
-        <Dialog open={props.open} onClose={props.onClose}>
+        <Dialog open={props.open} onClose={props.onClose} fullWidth>
             <StepperHeader activeStep={activeStep} />
-            <DialogContent>
-                { steps[activeStep].stepperContent }
+
+            <DialogContent dividers>
+                <Container style={{"height": "40vh"}} align="center" maxWidth="xl">
+                    { steps[activeStep].stepperContent }
+                </Container>
             </DialogContent>
         </Dialog>
     )

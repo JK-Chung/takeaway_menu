@@ -11,9 +11,9 @@ import FoodItem from "./FoodItem";
 const useStyles = makeStyles(theme => ({
     paper: {
         "width": "90%",
-        "marginTop": "10px",
+        "marginTop": "2.5vh",
         "marginLeft": "auto",
-        "marginBottom": "10px",
+        "marginBottom": "5vh",
         "marginRight": "auto",
     }
 }));
