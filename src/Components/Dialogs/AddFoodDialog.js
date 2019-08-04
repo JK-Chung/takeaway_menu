@@ -6,8 +6,8 @@ import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
 import Container from "@material-ui/core/Container";
 import Button from "@material-ui/core/Button";
-import QuantitySetter from "./QuantitySetter";
 import {Typography} from "@material-ui/core";
+import CounterTextField from "../common/CounterTextField/CounterTextField";
 
 const steps = [
     {
@@ -17,7 +17,7 @@ const steps = [
                 <Typography color="primary" variant="h5" style={{"margin": "2vh"}}>
                     How many portions would you like?
                 </Typography>
-                <QuantitySetter />
+                <CounterTextField />
             </React.Fragment>
     },
     {
