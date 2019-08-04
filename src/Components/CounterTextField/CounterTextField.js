@@ -23,13 +23,13 @@ const useQuantity = (onChange = () => {}) => {
 
 const style = {
     button: {
-        "height": "10vh",
-        "width": "10vh"
+        "height": "7vh",
+        "width": "7vh"
     },
     textField: {
-        "height": "10vh",
-        "width": "15vh",
-        "fontSize": "7vh"
+        "height": "7vh",
+        "width": "10vh",
+        "fontSize": "5vh"
     }
 };
 

@@ -1,21 +1,10 @@
 import React from "react";
-import Typography from "@material-ui/core/Typography";
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
-
 import AddButton from "./common/AddButton";
-import FoodQuantityDialog from "./Dialogs/FoodQuantityDialog";
 import AddFoodDialog from "./Dialogs/AddFoodDialog";
 
-const generateTotalPriceUIComponent = (foodItem, quantity) => {
-    return (
-        <Typography variant="body1" style={{"display": "inline"}}>
-            {"£" + (foodItem.price * quantity).toFixed(2)}
-        </Typography>
-    )
-};
-
-export default props => {
+const FoodItem = props => {
     const {id, name, price} = props.foodItem;
     const [quantity, setQuantity] = React.useState(0);
     const [isDialogOpen, setIsDialogOpen] = React.useState(false);
@@ -32,4 +21,6 @@ export default props => {
             <AddFoodDialog open={isDialogOpen} onClose={() => setIsDialogOpen(false)}/>
         </TableRow>
     )
-}
+};
+
+export default FoodItem;

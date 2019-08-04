@@ -4,17 +4,24 @@ import DialogContent from "@material-ui/core/DialogContent";
 import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
-import QuantitySetter from "./QuantitySetter";
-import {DialogContentText} from "@material-ui/core";
 import Container from "@material-ui/core/Container";
+import Button from "@material-ui/core/Button";
+import QuantitySetter from "./QuantitySetter";
+import {Typography} from "@material-ui/core";
 
 const steps = [
     {
-        label: "Select Quantity",
-        stepperContent: <QuantitySetter />
+        label: "Quantity",
+        stepperContent:
+            <React.Fragment>
+                <Typography color="primary" variant="h5" style={{"margin": "2vh"}}>
+                    How many portions would you like?
+                </Typography>
+                <QuantitySetter />
+            </React.Fragment>
     },
     {
-        label: "Select Sides",
+        label: "Sides",
         stepperContent: null
     }
 ];
@@ -44,6 +51,11 @@ const AddFoodDialog = props => {
                 <Container style={{"height": "40vh"}} align="center" maxWidth="xl">
                     { steps[activeStep].stepperContent }
                 </Container>
+            </DialogContent>
+            <DialogContent>
+                <Button variant="contained" color="primary" onClick={() => setActiveStep(activeStep + 1)}>
+                    Next
+                </Button>
             </DialogContent>
         </Dialog>
     )
