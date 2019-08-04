@@ -3,14 +3,15 @@ import React from "react";
 
 const BaseButton = props => {
     const baseButtonStyle = {
-        "height": props.height,
-        "width": props.width,
+        "height": "1.2rem",
+        "width": "1.2rem",
         "color": "white",
         "borderStyle": "none",
+        "borderRadius": "20%",
 
         // Override material-ui button styles affecting the button size we want
-        "minWidth": "0px",
-        "padding": "0px"
+        "minWidth": "0rem",
+        "padding": "0rem"
     };
 
     const baseButtonContentStyle = {
@@ -23,11 +24,6 @@ const BaseButton = props => {
             { React.cloneElement(props.children, {style: baseButtonContentStyle, ...props.children.style}) }
         </Button>
     )
-};
-
-BaseButton.defaultProps = {
-    height: "20px",
-    width: "20px"
 };
 
 export default BaseButton;

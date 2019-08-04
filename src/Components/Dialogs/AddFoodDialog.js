@@ -3,7 +3,6 @@ import Dialog from "@material-ui/core/Dialog";
 import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
-import CounterTextField from "../CounterTextField/CounterTextField";
 import QuantitySetter from "./QuantitySetter";
 
 const steps = [

@@ -17,7 +17,7 @@ const HomeButton = props => {
 const PageButtons = props => {
     const BaseButton = props => {
         return (
-            <Button color="inherit" style={{ "marginLeft": "5px", "marginRight": "5px" }}>
+            <Button color="inherit">
                 <Typography variant="button">
                     { props.text }
                 </Typography>
@@ -39,7 +39,7 @@ export default props => {
             <Toolbar>
                 <div style={{ "display": "flex" }}>
                 <HomeButton />
-                <PageButtons style={{ "position": "absolute", "right": "0px" }}/>
+                <PageButtons style={{ "position": "absolute", "right": "0rem" }}/>
                 </div>
             </Toolbar>
         </AppBar>

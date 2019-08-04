@@ -1,27 +1,22 @@
 import React from "react";
 
-const TextField = props => {
-    return (
-        <input
-            autoFocus={true}
-            value={props.value}
-            disabled={true}
-            style={{
-                "height": props.height,
-                "width": props.width,
-                "border": "none",
-                "padding": "0px",
+const TextField = props => (
+    <input
+        autoFocus={true}
+        value={props.value}
+        disabled={true}
+        style={{
+            "border": "none",
+            "padding": "0rem",
 
+            "textAlign": "center",
+            "color": "black",
+            // This ensures that the input lines up with the buttons
+            "verticalAlign": "middle",
 
-                "textAlign": "center",
-                "color": "black",
-                "fontSize": `calc(${props.height} * 0.6)`,
-
-                // This ensures that the input lines up with the buttons
-                "verticalAlign": "middle"
-            }}
-        />
-    )
-};
+            ...props.style
+        }}
+    />
+);
 
 export default TextField;

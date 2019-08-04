@@ -24,7 +24,7 @@ export default props => {
         "whiteSpace": "nowrap"
     };
     return(
-        <TableRow>
+        <TableRow hover>
             <TableCell style={{...tableCellStyle}} align="right">{id}</TableCell>
             <TableCell style={{...tableCellStyle, "width": "100%"}} align="left">{name}</TableCell>
             <TableCell style={{...tableCellStyle}}> {"£" + price.toFixed(2)}</TableCell>

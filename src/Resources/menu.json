@@ -1,5 +1,80 @@
 [
   {
+    "sectionName": "Soups and Starters",
+    "sectionFoods": [
+      {
+        "id": 1,
+        "name": "Chicken Noodle Soup",
+        "price": 2.30
+      },
+      {
+        "id": 2,
+        "name": "Chicken Mushroom Soup",
+        "price": 2.30
+      },
+      {
+        "id": 3,
+        "name": "Chicken Sweetcorn Soup",
+        "price": 2.35
+      },
+      {
+        "id": 4,
+        "name": "Wun Ton Soup",
+        "price": 2.90
+      },
+      {
+        "id": 5,
+        "name": "Hot & Sour Soup",
+        "price": 2.90
+      },
+      {
+        "id": 6,
+        "name": "Cream of Chicken or Mushroom Soup",
+        "price": 2.30
+      },
+      {
+        "id": 7,
+        "name": "Mini Pancake Roll (3) & Dip",
+        "price": 2.90
+      },
+      {
+        "id": 8,
+        "name": "Fried Wun Ton with Dip",
+        "price": 4.40
+      },
+      {
+        "id": 9,
+        "name": "Prawn Cocktail",
+        "price": 4.30
+      },
+      {
+        "id": 10,
+        "name": "Prawn Toast with Dip (8 pieces)",
+        "price": 4.50
+      },
+      {
+        "id": 11,
+        "name": "Spare Ribs with Sauce",
+        "price": 5.80
+      },
+      {
+        "id": 12,
+        "name": "Mixed Starter with Dip",
+        "price": 8.50
+      },
+      {
+        "id": 13,
+        "name": "Crispy Chicken Wings",
+        "price": 4.50
+      },
+      {
+        "id": 14,
+        "name": "New Zealand Green Mussels",
+        "price": 4.60
+      }
+    ]
+  },
+  {
     "sectionName": "Main Meals",
     "sectionFoods": [
       {

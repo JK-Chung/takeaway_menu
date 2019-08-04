@@ -5,8 +5,7 @@ const QuantitySetter = props => {
     const [quantity, setQuantity] = React.useState(0);
     React.useEffect(() => console.log("FROM QUANTITYSETTER", quantity));
     return (
-        <CounterTextField onChange={setQuantity} height="100px" width="400px"
-        />
+        <CounterTextField onChange={setQuantity} height={100} />
     )
 };
 
