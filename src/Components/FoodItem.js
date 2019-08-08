@@ -18,7 +18,7 @@ const FoodItem = props => {
             <TableCell style={{...tableCellStyle, "width": "100%"}} align="left">{name}</TableCell>
             <TableCell style={{...tableCellStyle}}> {"£" + price.toFixed(2)}</TableCell>
             <TableCell><AddButton onClick={() => setIsDialogOpen(true)} style={{"backgroundColor": quantity === 0 ? "lightgray" : "blue"}}/></TableCell>
-            <AddFoodDialog open={isDialogOpen} onClose={() => setIsDialogOpen(false)}/>
+            <AddFoodDialog open={isDialogOpen} onClose={() => setIsDialogOpen(false)} foodItem={props.foodItem}/>
         </TableRow>
     )
 };
