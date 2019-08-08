@@ -3,8 +3,8 @@ import MinusButton from "./MinusButton";
 import TextField from "./TextField";
 import PlusButton from "./PlusButton";
 
-const useQuantity = (onChange = () => {}) => {
-    const [quantity, setQuantity] = React.useState(0);
+const useQuantity = (initialValue, onChange) => {
+    const [quantity, setQuantity] = React.useState(initialValue);
     React.useEffect(() => onChange(quantity));
 
     const decrementQuantity = () => {
@@ -33,7 +33,7 @@ const style = {
 };
 
 const CounterTextField = props => {
-    const { quantity, decrementQuantity, incrementQuantity } = useQuantity(props.onChange);
+    const { quantity, decrementQuantity, incrementQuantity } = useQuantity(props.initialValue, props.onChange);
 
     return (
         <div>
@@ -42,6 +42,11 @@ const CounterTextField = props => {
             <PlusButton style={style.button} onClick={ incrementQuantity } />
         </div>
     )
+};
+
+CounterTextField.defaultProps = {
+    initialValue: 0,
+    onChange: () => {}
 };
 
 export default CounterTextField;

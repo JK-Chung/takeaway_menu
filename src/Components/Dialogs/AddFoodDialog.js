@@ -13,32 +13,7 @@ import PropTypes from 'prop-types';
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import SidesSetter from "./SidesSetter";
-
-const generateSteps = foodItem => {
-    const {name} = foodItem;
-    return (
-        [
-            {
-                label: "Quantity",
-                stepperContent:
-                    <React.Fragment>
-                        <Typography color="primary" variant="h5" style={{"margin": "2vh"}}>
-                            How many portions of would you like?
-                        </Typography>
-                        <CounterTextField/>
-                    </React.Fragment>
-            },
-            {
-                label: "Sides",
-                stepperContent: <SidesSetter />
-            },
-            {
-                label: "Extras",
-                stepperContent: <React.Fragment/>
-            }
-        ]
-    )
-};
+import QuantitySetter from "./QuantitySetter";
 
 const StepperHeader = props => {
     const labelToStepComponent = label => (
@@ -53,7 +28,7 @@ const StepperHeader = props => {
             <AppBar position="static" color="primary">
                 <Toolbar variant="dense">
                     <Typography variant="subtitle1" color="inherit">
-                        {props.foodItem.name}
+                        { props.title }
                     </Typography>
                 </Toolbar>
             </AppBar>
@@ -64,14 +39,39 @@ const StepperHeader = props => {
     );
 };
 
-const AddFoodDialog = props => {
-    const [activeStep, setActiveStep] = React.useState(0);
+const useFoodState = () => {
+    const [ quantity, setQuantity ] = React.useState(0);
 
-    const { foodItem } = props;
-    const dialogSteps = generateSteps(foodItem);
+    return {
+        quantity, setQuantity
+    }
+};
+
+const generateDialogSteps = foodState => (
+    [
+        {
+            label: "Quantity",
+            stepperContent: <QuantitySetter initialQuantity={foodState.quantity} onChange={foodState.setQuantity}/>
+        },
+        {
+            label: "Sides",
+            stepperContent: <SidesSetter />
+        },
+        {
+            label: "Extras",
+            stepperContent: <React.Fragment/>
+        }
+    ]
+);
+
+const AddFoodDialog = props => {
+    const foodState = useFoodState();
+    const [activeStep, setActiveStep] = React.useState(0);
+    const dialogSteps = generateDialogSteps(foodState);
+
     return (
         <Dialog open={props.open} onClose={props.onClose} fullWidth classes={{paper: props.classes.paper}}>
-            <StepperHeader activeStep={activeStep} steps={dialogSteps} foodItem={foodItem}/>
+            <StepperHeader activeStep={activeStep} steps={dialogSteps} title={props.foodItem.name}/>
 
             <DialogContent dividers>
                 <Container style={{"height": "40vh"}} align="center" maxWidth="xl">
@@ -80,6 +80,12 @@ const AddFoodDialog = props => {
             </DialogContent>
 
             <DialogContent>
+                <Button onClick={() => setActiveStep(activeStep - 1)}
+                        variant="outlined" color="primary"
+                        style={{"float": "left"}}
+                >
+                    Previous
+                </Button>
                 <Button onClick={() => setActiveStep(activeStep + 1)}
                         variant="contained" color="primary"
                         style={{"float": "right"}}
