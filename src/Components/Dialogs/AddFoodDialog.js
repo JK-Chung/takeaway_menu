@@ -83,12 +83,14 @@ const AddFoodDialog = props => {
                 <Button onClick={() => setActiveStep(activeStep - 1)}
                         variant="outlined" color="primary"
                         style={{"float": "left"}}
+                        disabled={activeStep === 0}
                 >
                     Previous
                 </Button>
                 <Button onClick={() => setActiveStep(activeStep + 1)}
                         variant="contained" color="primary"
                         style={{"float": "right"}}
+                        disabled={activeStep === dialogSteps.length - 1}
                 >
                     Next
                 </Button>

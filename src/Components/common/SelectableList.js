@@ -10,19 +10,19 @@ const styles = {
 };
 
 const SelectableList = props => {
-    const [currItem, setCurrItem ] = React.useState(null);
-        const { items, itemToString } = props;
+    const [currItem, setCurrItem] = React.useState(null);
+    React.useEffect(() => props.onSelect(currItem), [currItem]);
 
     return (
         <React.Fragment>
             {
-                items.map(item => (
+                props.items.map(item => (
                     <Button key={item}
-                            onClick={() => setCurrItem(item) }
-                            variant={ item === currItem ? "contained" : "outlined" }
+                            onClick={ () => setCurrItem(item) }
+                            variant={item === currItem ? "contained" : "outlined"}
                             color="primary"
                             style={styles.button}>
-                        { itemToString(item) }
+                        { props.itemToString(item) }
                     </Button>)
                 )
             }
@@ -31,7 +31,9 @@ const SelectableList = props => {
 };
 
 SelectableList.defaultProps = {
-    itemToString: item => item
+    itemToString: item => item,
+    onSelect: selectedItem => {
+    }
 };
 
 export default SelectableList;
