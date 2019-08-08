@@ -1,43 +1,13 @@
 import React from "react";
 import Dialog from "@material-ui/core/Dialog";
 import DialogContent from "@material-ui/core/DialogContent";
-import Stepper from "@material-ui/core/Stepper";
-import Step from "@material-ui/core/Step";
-import StepLabel from "@material-ui/core/StepLabel";
 import Container from "@material-ui/core/Container";
 import Button from "@material-ui/core/Button";
-import {Typography} from "@material-ui/core";
-import CounterTextField from "../common/CounterTextField/CounterTextField";
 import withStyles from "@material-ui/core/styles/withStyles";
 import PropTypes from 'prop-types';
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
 import SidesSetter from "./SidesSetter";
 import QuantitySetter from "./QuantitySetter";
-
-const StepperHeader = props => {
-    const labelToStepComponent = label => (
-        <Step key={label}>
-            <StepLabel>{label}</StepLabel>
-        </Step>
-    );
-
-    const { steps } = props;
-    return (
-        <React.Fragment>
-            <AppBar position="static" color="primary">
-                <Toolbar variant="dense">
-                    <Typography variant="subtitle1" color="inherit">
-                        { props.title }
-                    </Typography>
-                </Toolbar>
-            </AppBar>
-            <Stepper activeStep={props.activeStep}>
-                { steps.map(({label}) => labelToStepComponent(label)) }
-            </Stepper>
-        </React.Fragment>
-    );
-};
+import StepperHeader from "./StepperHeader";
 
 const useFoodState = () => {
     const [ quantity, setQuantity ] = React.useState(0);

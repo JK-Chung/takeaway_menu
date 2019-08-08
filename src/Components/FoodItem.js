@@ -2,7 +2,7 @@ import React from "react";
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 import AddButton from "./common/AddButton";
-import AddFoodDialog from "./Dialogs/AddFoodDialog";
+import AddFoodDialog from "./AddFoodDialog/AddFoodDialog";
 
 const FoodItem = props => {
     const {id, name, price} = props.foodItem;
