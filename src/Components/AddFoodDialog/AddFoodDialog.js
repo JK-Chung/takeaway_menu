@@ -36,31 +36,31 @@ const generateDialogSteps = foodState => (
 
 const AddFoodDialog = props => {
     const foodState = useFoodState();
-    const [activeStep, setActiveStep] = React.useState(0);
-    const dialogSteps = generateDialogSteps(foodState);
 
+    const [activeDialogStep, setActiveDialogStep] = React.useState(0);
+    const dialogSteps = generateDialogSteps(foodState);
     return (
         <Dialog open={props.open} onClose={props.onClose} fullWidth classes={{paper: props.classes.paper}}>
-            <StepperHeader activeStep={activeStep} steps={dialogSteps} title={props.foodItem.name}/>
+            <StepperHeader activeStep={activeDialogStep} steps={dialogSteps} title={props.foodItem.name}/>
 
             <DialogContent dividers>
                 <Container style={{"height": "40vh"}} align="center" maxWidth="xl">
-                    { dialogSteps[activeStep].stepperContent }
+                    { dialogSteps[activeDialogStep].stepperContent }
                 </Container>
             </DialogContent>
 
             <DialogContent>
-                <Button onClick={() => setActiveStep(activeStep - 1)}
+                <Button onClick={() => setActiveDialogStep(activeDialogStep - 1)}
                         variant="outlined" color="primary"
                         style={{"float": "left"}}
-                        disabled={activeStep === 0}
+                        disabled={activeDialogStep === 0}
                 >
                     Previous
                 </Button>
-                <Button onClick={() => setActiveStep(activeStep + 1)}
+                <Button onClick={() => setActiveDialogStep(activeDialogStep + 1)}
                         variant="contained" color="primary"
                         style={{"float": "right"}}
-                        disabled={activeStep === dialogSteps.length - 1}
+                        disabled={activeDialogStep === dialogSteps.length - 1}
                 >
                     Next
                 </Button>
@@ -80,7 +80,7 @@ AddFoodDialog.propTypes = {
 
 const styles = {
     paper: {
-        // The following auto adjusts the height of the dialog to fit its content
+        // The following properties auto adjusts the height of the dialog to fit its content
         "display": "table",
         "margin": "0"
     }
