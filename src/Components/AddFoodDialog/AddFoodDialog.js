@@ -9,34 +9,35 @@ import SidesSetter from "./SidesSetter";
 import QuantitySetter from "./QuantitySetter";
 import StepperHeader from "./StepperHeader";
 
-const useFoodState = () => {
+const useDialogStepsWithFoodState = (foodItem) => {
     const [ side, setSide ] = React.useState();
 
-    const dialogSteps = [
-        {
+    const dialogSteps = [];
+    if(foodItem.freeSide) {
+        dialogSteps.push({
             label: "Sides",
             stepperContent: <SidesSetter initialSide={side} onSelect={setSide}/>
-        },
-        {
+        });
+    }
+
+    if(true) {
+        dialogSteps.push({
             label: "Extras",
             stepperContent: <React.Fragment/>
-        }
-    ];
+        });
+    }
 
     return {
-        dialogSteps,
-        foodState: {
-            side, setSide
-        }
+        dialogSteps
     };
 };
 
-const AddFoodDialog = props => {
-    const { dialogSteps, foodState } = useFoodState();
+const AddFoodDialog = ({ foodItem, open, onClose, classes }) => {
+    const { dialogSteps } = useDialogStepsWithFoodState(foodItem);
     const [activeDialogStep, setActiveDialogStep] = React.useState(0);
     return (
-        <Dialog open={props.open} onClose={props.onClose} fullWidth classes={{paper: props.classes.paper}}>
-            <StepperHeader activeStep={activeDialogStep} steps={dialogSteps} title={props.foodItem.name}/>
+        <Dialog open={open} onClose={onClose} fullWidth classes={{paper: classes.paper}}>
+            <StepperHeader activeStep={activeDialogStep} steps={dialogSteps} title={foodItem.name}/>
 
             <DialogContent dividers>
                 <Container style={{"height": "40vh"}} align="center" maxWidth="xl">
