@@ -1,14 +1,15 @@
 import React from "react";
 import {Typography} from "@material-ui/core";
 import CounterTextField from "../common/CounterTextField/CounterTextField";
+import DialogContentTitle from "./DialogContentTitle";
 
 const QuantitySetter = props => {
     const { initialQuantity, onChange } = props;
     return (
         <React.Fragment>
-            <Typography color="primary" variant="h5" style={{"margin": "2vh"}}>
+            <DialogContentTitle>
                 How many portions would you like?
-            </Typography>
+            </DialogContentTitle>
             <CounterTextField initialValue={initialQuantity} onChange={onChange}/>
         </React.Fragment>
     )

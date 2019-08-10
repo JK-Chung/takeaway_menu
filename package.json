@@ -33,6 +33,6 @@
     ]
   },
   "devDependencies": {
-    "prop-types": "latest"
+    "prop-types": "^15.7.2"
   }
 }

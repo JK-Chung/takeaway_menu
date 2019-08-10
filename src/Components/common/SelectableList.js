@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
+import PropTypes from "prop-types";
 
 const styles = {
     button: {
@@ -9,20 +10,20 @@ const styles = {
     }
 };
 
-const SelectableList = props => {
-    const [currItem, setCurrItem] = React.useState(null);
-    React.useEffect(() => props.onSelect(currItem), [currItem]);
+const SelectableList = ({ items, itemToString, initialItem, onSelect }) => {
+    const [currItem, setCurrItem] = React.useState(initialItem);
+    React.useEffect(() => onSelect(currItem), [onSelect, currItem]);
 
     return (
         <React.Fragment>
             {
-                props.items.map(item => (
+                items.map(item => (
                     <Button key={item}
                             onClick={ () => setCurrItem(item) }
                             variant={item === currItem ? "contained" : "outlined"}
                             color="primary"
                             style={styles.button}>
-                        { props.itemToString(item) }
+                        { itemToString(item) }
                     </Button>)
                 )
             }
@@ -30,10 +31,16 @@ const SelectableList = props => {
     )
 };
 
+SelectableList.propTypes = {
+    items: PropTypes.array.isRequired,
+    itemToString: PropTypes.func.isRequired,
+    initialItem: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    onSelect: PropTypes.func.isRequired
+};
+
 SelectableList.defaultProps = {
     itemToString: item => item,
-    onSelect: selectedItem => {
-    }
+    onSelect: selectedItem => {}
 };
 
 export default SelectableList;
